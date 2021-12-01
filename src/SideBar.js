@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-const VideoDisplay = (props) => {
+const SideBar = (props) => {
     console.log(props);
     let rerenderVideo = props.videos.map((vid) => {
         return (
@@ -19,4 +18,4 @@ const VideoDisplay = (props) => {
     );
 }
 
-export default VideoDisplay
+export default SideBar
