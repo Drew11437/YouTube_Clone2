@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-
-import axios from "axios";
-import SideBar from "../src/SideBar"
-
+//import reactDom from "react-dom";
+ import axios from "axios";
+import VideoItem from "./Component/VideoItem/VideoItem"
+import SideBar from "./Component/SideBar/SideBar";
 
  
 
@@ -24,7 +24,7 @@ class App extends Component {
     try {
         let response = await axios.get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRdm0OshByuYaD45qs8dso70aMBXtiwRk&maxResults=30&q=StephenASmith&type=video&part=snippet ");
             console.log(response.data);
-            this.setState({ videos: response.data, });
+            this.setState({ videos: response.data });
           }
      catch (error) {
         console.log(error);
@@ -36,10 +36,9 @@ class App extends Component {
     console.log(this.state);
       return (
           <div>
-             <iframe id="ytplayer" type="text/html" width="640" height="360"
-  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-  frameborder="0"></iframe> 
-            <SideBar />
+             
+             { <VideoItem />  }
+             {<SideBar videos={this.state.videos}/>}
           </div>
         
       )
