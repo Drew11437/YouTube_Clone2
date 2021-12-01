@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 
 import axios from "axios";
-import SideBar from "./SideBar"
-import VideoDisplay from "./VideoDisplay"
+//import SideBar from "./SideBar"
+
 
  
 
@@ -39,7 +39,7 @@ class App extends Component {
              <iframe id="ytplayer" type="text/html" width="640" height="360"
   src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
   frameborder="0"></iframe> 
-            <VideoDisplay videos={this.state.videos} />
+            
           </div>
         
       )
