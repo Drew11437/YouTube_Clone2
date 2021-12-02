@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./SearchBar.css"
 
 
 class SearchBar extends React.Component {
@@ -12,10 +12,10 @@ class SearchBar extends React.Component {
            
            
             <label for="search" class="form-label">Search </label>
-            <input type="password" class="form-control" id="inputPassword4"></input>
+            <input type="search" class="form-control" id="input"></input>
             
           </div>
         )
     }
 }
-export default SearchBar
+export default SearchBar;
