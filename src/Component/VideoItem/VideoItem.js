@@ -3,11 +3,12 @@ import React  from "react";
 
 
 
-export const VideoItem = () => {
+export const VideoItem = (props) => {
+    var url = `https://www.youtube.com/embed/${props.videoID}?autoplay=1&origin=http://example.com`
     return (
         <div>
              <iframe title="ytplayer" type="text/html" width="640" height="360"
-  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+  src= {url}
   frameborder="0"></iframe>
         </div>
     )

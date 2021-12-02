@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          videos: []
+          videos: [],
+          videoID: "paaR5szOfKU"
           
     };
   }
@@ -24,7 +25,7 @@ class App extends Component {
     try {
         let response = await axios.get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRdm0OshByuYaD45qs8dso70aMBXtiwRk&maxResults=30&q=StephenASmith&type=video&part=snippet ");
             console.log(response.data);
-            this.setState({ videos: response.data });
+            this.setState({ videos: response.data.items });
           }
      catch (error) {
         console.log(error);
@@ -32,19 +33,26 @@ class App extends Component {
 
   }
 
+  handleVideoSelect = (videoID) => {
+    this.setState({videoID: videoID});
+  }
+
+
   render() {
     console.log(this.state);
       return (
           <div>
              
-             { <VideoItem />  }
-             {<SideBar videos={this.state.videos}/>}
+             { <VideoItem videoID={this.state.videoID} />  }
+             {<SideBar videos={this.state.videos} handleVideoSelect ={this.handleVideoSelect} />}
+
           </div>
         
       )
   }
 
 }
+
 
     
   export default App;
