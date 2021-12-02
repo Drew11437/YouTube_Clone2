@@ -3,7 +3,7 @@ import React, {Component} from "react";
  import axios from "axios";
 import VideoItem from "./Component/VideoItem/VideoItem"
 import SideBar from "./Component/SideBar/SideBar";
-
+import SearchBar from "./Component/SearchBar/SearchBar";
  
 
 class App extends Component {
@@ -45,7 +45,7 @@ class App extends Component {
              
              { <VideoItem videoID={this.state.videoID} />  }
              {<SideBar videos={this.state.videos} handleVideoSelect ={this.handleVideoSelect} />}
-
+              <SearchBar></SearchBar>
           </div>
         
       )
