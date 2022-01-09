@@ -1,0 +1,22 @@
+.sidebar {
+  height: 200px;
+  width: 150px;
+  position: -webkit-sticky; /* for Safari users */
+  position: sticky;
+  top: 0px;
+  float: right;
+  margin-top: 100px;
+  padding-top: 40px;
+  background-color: lightblue;
+}
+
+.sidebar div {
+  padding: 8px;
+  font-size: 24px;
+  display: block;
+}
+
+.body-text {
+  margin-right: 150px;
+  font-size: 18px;
+}
