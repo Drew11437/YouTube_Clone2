@@ -1,7 +1,7 @@
 import React from "react";
 
 class NavBar extends React.Component {
-  render(App) {
+  render() {
     return (
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
