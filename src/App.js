@@ -5,6 +5,7 @@ import VideoItem from "./Component/VideoItem/VideoItem";
 import SideBar from "./Component/SideBar/SideBar";
 import SearchBar from "./Component/SearchBar/SearchBar";
 import CommentArea from "./Component/CommentArea/commentArea";
+import NavBar from "./Component/NavBar/NavBar";
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class App extends Component {
           comments={this.state.videos}
           handleCommentAdd={this.handleCommentAdd}
         />
+        <NavBar />
       </div>
     );
   }

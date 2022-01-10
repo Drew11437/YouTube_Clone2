@@ -33,15 +33,7 @@ const CommentArea = (handleCommentAdd) => {
                   <div class="">
                     <h5>Johny Cash</h5>
                     <p class="small">3 hours ago</p>
-                    <p>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel
-                      metus scelerisque ante sollicitudin. Cras purus odio,
-                      vestibulum in vulputate at, tempus viverra turpis. Fusce
-                      condimentum nunc ac nisi vulputate fringilla. Donec
-                      lacinia congue felis in faucibus ras purus odio,
-                      vestibulum in vulputate at, tempus viverra turpis.
-                    </p>
-
+                    <p>Love the video</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="d-flex align-items-center">
                         <a href="#!" class="link-muted me-2">
