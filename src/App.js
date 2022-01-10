@@ -16,17 +16,18 @@ class App extends Component {
       object: null,
       comment: "",
     };
+    this.fetchVideos = this.fetchVideos.bind(this);
   }
 
   componentDidMount() {
-    this.fetchVideos();
+    this.fetchVideos("StephenASmith");
     console.log(this.state.videos);
   }
 
-  async fetchVideos() {
+  async fetchVideos(search) {
     try {
       let response = await axios.get(
-        "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRdm0OshByuYaD45qs8dso70aMBXtiwRk&maxResults=30&q=StephenASmith&type=video&part=snippet "
+        `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRdm0OshByuYaD45qs8dso70aMBXtiwRk&maxResults=30&q=${search}&type=video&part=snippet`
       );
       console.log(response.data);
       this.setState({ videos: response.data.items });
@@ -54,10 +55,11 @@ class App extends Component {
             handleVideoSelect={this.handleVideoSelect}
           />
         }
-        <CommentArea />
+
         <SearchBar
           comments={this.state.videos}
           handleCommentAdd={this.handleCommentAdd}
+          fetchVideos={this.fetchVideos}
         />
         <NavBar />
       </div>

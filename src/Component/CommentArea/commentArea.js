@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const CommentArea = (handleCommentAdd) => {
+const CommentArea = ({ handleAddComment, comments }) => {
+  const [comment, setComment] = useState("");
+
   return (
     <section>
-      <div class="mb-3">
+      <form class="mb-3" onSubmit={(e) => handleAddComment(e, comment)}>
         <label for="exampleFormControlTextarea1" class="form-label">
           Write a comment:
         </label>
@@ -11,84 +13,51 @@ const CommentArea = (handleCommentAdd) => {
           class="form-control"
           id="exampleFormControlTextarea1"
           rows="3"
+          onChange={(e) => setComment(e.target.value)}
         ></textarea>
-        <button type="button" class="submit">
+        <button type="submit" class="submit primary">
           Submit
         </button>
-      </div>
+      </form>
 
       <div class="container my-5 py-5 text-dark">
         <div class="row d-flex justify-content-center">
           <div class="col-md-11 col-lg-9 col-xl-7">
-            <div class="d-flex flex-start mb-4">
-              <img
-                class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
-                alt="avatar"
-                width="65"
-                height="65"
-              />
-              <div class="card w-100">
-                <div class="card-body p-4">
-                  <div class="">
-                    <h5>Johny Cash</h5>
-                    <p class="small">3 hours ago</p>
-                    <p>Love the video</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="d-flex align-items-center">
-                        <a href="#!" class="link-muted me-2">
-                          <i class="fas fa-thumbs-up me-1"></i>132
-                        </a>
+            {comments.map((comment) => (
+              <div class="d-flex flex-start mb-4">
+                <img
+                  class="rounded-circle shadow-1-strong me-3"
+                  src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
+                  alt="avatar"
+                  width="65"
+                  height="65"
+                />
+                <div class="card w-100">
+                  <div class="card-body p-4">
+                    <div class="">
+                      <h5>Annoymous</h5>
+                      <p class="small">3 hours ago</p>
+                      <p>{comment.text}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                          <a href="#!" class="link-muted me-2">
+                            <i class="fas fa-thumbs-up me-1"></i>
+                            {comment.likes}
+                          </a>
+                          <a href="#!" class="link-muted">
+                            <i class="fas fa-thumbs-down me-1"></i>
+                            {comment.dislikes}
+                          </a>
+                        </div>
                         <a href="#!" class="link-muted">
-                          <i class="fas fa-thumbs-down me-1"></i>15
+                          <i class="fas fa-reply me-1"></i> Reply
                         </a>
                       </div>
-                      <a href="#!" class="link-muted">
-                        <i class="fas fa-reply me-1"></i> Reply
-                      </a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="d-flex flex-start">
-              <img
-                class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
-                alt="avatar"
-                width="65"
-                height="65"
-              />
-              <div class="card w-100">
-                <div class="card-body p-4">
-                  <div class="">
-                    <h5>Mindy Campbell</h5>
-                    <p class="small">5 hours ago</p>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Delectus cumque doloribus dolorum dolor repellat nemo
-                      animi at iure autem fuga cupiditate architecto ut quam
-                      provident neque, inventore nisi eos quas?
-                    </p>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="d-flex align-items-center">
-                        <a href="#!" class="link-muted me-2">
-                          <i class="fas fa-thumbs-up me-1"></i>158
-                        </a>
-                        <a href="#!" class="link-muted">
-                          <i class="fas fa-thumbs-down me-1"></i>13
-                        </a>
-                      </div>
-                      <a href="#!" class="link-muted">
-                        <i class="fas fa-reply me-1"></i> Reply
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
